@@ -1,8 +1,11 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "@/images/logo.png";
 import dynamic from "next/dynamic";
 import SideBar from "./SideBar";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const DarkModeToggler = dynamic(
   () => import("@/app/components/DarkModeToggler"),
@@ -14,22 +17,38 @@ const DarkModeToggler = dynamic(
   }
 );
 const Header = () => {
+  const [activeSection, setActiveSection] = useState("");
+
+  const handleSectionClick = (sectionId: string) => {
+    console.log(sectionId.replace("#", ""));
+    const section = document.getElementById(sectionId.replace("#", ""));
+    console.log(section);
+
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+        inline: "start",
+      });
+    }
+  };
+
   const navItems = [
     {
       name: "How it works",
-      href: "/how-it-works",
+      href: "#how-it-works",
     },
     {
       name: "Prices",
-      href: "/prices",
+      href: "#prices",
     },
     {
       name: "Testimonials",
-      href: "/testimonials",
+      href: "#testimonials",
     },
     {
       name: "FAQ's",
-      href: "/faq",
+      href: "#faq",
     },
   ];
   return (
@@ -41,8 +60,19 @@ const Header = () => {
           </div>
           <div className="flex items-center gap-10 text-sm">
             {navItems.map((item) => (
-              <Link key={item.name} href={item.href}>
-                {item.name}
+              <Link
+                key={item.name}
+                href={item.href}
+                className={activeSection === item.href ? "text-primary" : ""}
+              >
+                <button
+                  onClick={() => {
+                    setActiveSection(item.href);
+                    handleSectionClick(item.href);
+                  }}
+                >
+                  {item.name}
+                </button>
               </Link>
             ))}
             <DarkModeToggler />

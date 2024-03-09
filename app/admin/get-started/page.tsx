@@ -1,5 +1,6 @@
 import Divder from "@/app/components/Divder";
 import Link from "next/link";
+import Features from "./Features";
 
 const page = () => {
   return (
@@ -37,7 +38,12 @@ const page = () => {
         </div>
       </div>
       <br />
-      <Divder text="How it works" />
+      <br />
+      <br />
+      <Divder text="How it works" id="how-it-works" />
+      <br />
+      <br />
+      <Features />
     </div>
   );
 };
