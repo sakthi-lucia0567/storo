@@ -1,6 +1,7 @@
 import Divder from "@/app/components/Divder";
 import Link from "next/link";
 import Features from "./Features";
+import Pricing from "./Pricing";
 
 const page = () => {
   return (
@@ -44,6 +45,12 @@ const page = () => {
       <br />
       <br />
       <Features />
+      <br />
+      <br />
+      <Divder text="Pricing" id="prices" />
+      <br />
+      <br />
+      <Pricing />
     </div>
   );
 };

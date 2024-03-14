@@ -40,7 +40,7 @@ const Features = () => {
   return (
     <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
       <div className="text-center justify-center items-center">
-        <h2 className="text-4xl inline-flex bg-clip-text bg-gradient-to-l from-blue-600 to-violet-500 text-transparent dark:from-blue-400 dark:to-violet-400 font-semibold">
+        <h2 className="text-4xl font-bold lg:text-5xl inline-flex bg-clip-text bg-gradient-to-l from-blue-600 to-violet-500 text-transparent dark:from-blue-400 dark:to-violet-400 ">
           Features
         </h2>
       </div>
@@ -70,7 +70,7 @@ const Features = () => {
               <h3 className="text-xl font-semibold text-black dark:text-white">
                 {feature.name}
               </h3>
-              <p className="mt-2 text-sm text-gray-400">
+              <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
                 {feature.description}
               </p>
             </div>
